@@ -19,8 +19,8 @@ app.use(
 app.use(express.static("public"));
 
 //Routes
-app.use("/pin", pinRouter);
-app.use("/user", userRouter);
+app.use("/api/pin", pinRouter);
+app.use("/api/user", userRouter);
 
 mongoose
   .connect(`${dbhost}/pinPic`)

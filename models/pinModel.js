@@ -18,7 +18,7 @@ const pinSchema = new Schema(
     description: {
       type: String,
     },
-    comments: [{ type: Schema.Types.ObjectId, ref: "User" }],
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
   },
   { timestamps: true }
 );

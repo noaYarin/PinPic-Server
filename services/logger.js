@@ -1,7 +1,7 @@
 const { createLogger, format, transports } = require("winston");
 require("winston-mongodb");
 
-module.exports = createLogger({
+const logger = createLogger({
   transports: [
     // File transport
     new transports.File({
@@ -33,3 +33,5 @@ module.exports = createLogger({
     }),
   ],
 });
+
+module.exports = logger;
