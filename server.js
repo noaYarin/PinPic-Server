@@ -8,7 +8,8 @@ app = express();
   (logger = require("./services/logger")),
   (postRouter = require("./routes/postRouter")),
   (userRouter = require("./routes/userRouter")),
-  (commentRouter = require("./routes/commentRouter"));
+  (commentRouter = require("./routes/commentRouter")),
+  (figlet = require("figlet"));
 
 //Middlewars
 app.use(express.json());
@@ -28,6 +29,18 @@ mongoose
   .connect(`${dbhost}/picPic`)
   .then(() => {
     app.listen(port, () => {
+      figlet(
+        "Server is running",
+        {
+          font: "Varsity",
+          width: 80,
+          horizontalLayout: "full",
+          whitespaceBreak: true,
+        },
+        (err, data) => {
+          err ? logger.error(err) : console.log(data);
+        }
+      );
       logger.info(`server start listening on port ${port}`);
     });
   })

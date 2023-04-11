@@ -32,6 +32,9 @@ const userSchema = new Schema(
     about: {
       type: String,
     },
+    birthday: {
+      type: Date,
+    },
     savedPins: [{ type: Schema.Types.ObjectId, ref: "Pin" }],
     isAdmin: {
       type: Boolean,
@@ -45,6 +48,7 @@ userSchema.methods.validateFields = (user) => {
   const joiUserSchema = Joi.object({
     _id: Joi.options({ allowUnknown: true }),
     isAdmin: Joi.options({ allowUnknown: true }),
+    birthday: Joi.options({ allowUnknown: true }),
     image: Joi.options({ allowUnknown: true }),
     savedPins: Joi.options({ allowUnknown: true }),
     about: Joi.options({ allowUnknown: true }),
